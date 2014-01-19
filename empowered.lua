@@ -19,7 +19,7 @@ local function GetClassModifier(spellID)
 		modifier = 1
 	elseif type(handlers) == 'table' and handlers[currentSpec] then
 		modifier = handlers[currentSpec](spellID)
-	elseif handlers then
+	elseif type(handlers) == 'function' then
 		modifier = handlers(spellID)
 	end
 
