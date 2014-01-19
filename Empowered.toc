@@ -1,0 +1,21 @@
+## Interface: 50400
+## Author: ckaotik
+## Title: Empowered
+## Version: dev
+## OptionalDeps: Masque
+## Dependencies:
+## SavedVariables: Empowered_GlobalDB
+# # SavedVariablesPerCharacter: Empowered_LocalDB
+
+## X-ConfigMode: true
+
+#@no-lib-strip@
+# libraries
+libs\LibStub.lua
+libs\LibMovable-1.0\LibMovable-1.0.lua
+#@end-no-lib-strip@
+
+util.lua
+data.lua
+empowered.lua
+options.lua

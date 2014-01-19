@@ -1,0 +1,20 @@
+## Interface: 50400
+## X-Curse-Packaged-Version: 1.1
+## X-Curse-Project-Name: LibMovable-1.0
+## X-Curse-Project-ID: libmovable-1-0
+## X-Curse-Repository-ID: wow/libmovable-1-0/mainline
+
+## Title: Lib: Movable-1.0
+## Notes: Movable frame library.
+## Author: Adirelle
+## Version: 1.1
+## LoadOnDemand: 1
+## X-Date: 2013-11-22T23:08:49Z
+## X-Category: Library
+## X-License: GPL v3
+## X-eMail: adirelle@gmail.com
+
+## OptionalDeps: LibStub
+
+LibStub.lua
+LibMovable-1.0.lua
