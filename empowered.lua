@@ -5,6 +5,18 @@ local addonName, ns, _ = ...
 -- GLOBALS: unpack, select, pairs, ipairs, type, wipe, tContains
 local LibMasque = LibStub('Masque', true)
 local Movable = LibStub('LibMovable-1.0')
+local LibPlayerSpells = LibStub('LibPlayerSpells-1.0')
+-- /run for a,b,c,d,e in LPS:IterateSpells("DRUID", "AURA HARMFUL") do print(a,b,c,d,e) end
+--[[
+spellId, flags, providers, modifiers, RAIDBUFF
+106830 147458 106830 106830 nil
+1822 147458 1822 1822 nil
+33745 147458 33745 33745 nil
+93402 147458 93402 93402 nil
+1079 147458 1079 1079 nil
+8921 147458 8921 8921 nil
+77758 147458 77758 77758 nil
+--]]
 
 local frame
 local spells, handlers = nil, nil
@@ -54,7 +66,6 @@ end
 --  Track Spell Power
 -- ========================================================
 local state = {}
-FOO = state
 local function UpdateSpellButton(spellID, spellName)
 	local button = frame[spellID]
 	local spellName = spellName or GetSpellInfo(spellID)
