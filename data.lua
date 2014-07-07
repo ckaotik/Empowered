@@ -28,9 +28,10 @@ ns.classSpells = {
 		[ 77758] = {function() return UnitAttackPower('player') end, 3}, --
 	},
 	WARLOCK = {
-		[   172] = {function() return GetSpellBonusDamage(6) end, nil}, -- Corruption
-		[   980] = {function() return GetSpellBonusDamage(6) end, nil}, -- Agony
-		[ 30108] = {function() return GetSpellBonusDamage(6) end, nil}, -- Unstable Affliction
+		[   172] = {function() return GetSpellBonusDamage(6) end, 1}, -- Corruption
+		[   980] = {function() return GetSpellBonusDamage(6) end, 1}, -- Agony
+		[ 30108] = {function() return GetSpellBonusDamage(6) end, 1}, -- Unstable Affliction
+		[   348] = {function() return GetSpellBonusDamage(3) end, 3, {348, 108686}}, -- Immolate
 		-- [ 47960] = {1, GetSpellBonusDamage, 6}, -- Shadowflame
 		-- [108366] = {1, GetSpellBonusDamage, 6}, -- Soulleech
 		-- [108416] = {1, GetSpellBonusDamage, 6}, -- Pact of Sacrifice

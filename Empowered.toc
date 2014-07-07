@@ -17,5 +17,5 @@ libs\LibMovable-1.0\LibMovable-1.0.lua
 
 util.lua
 data.lua
-empowered.lua
+Empowered.lua
 options.lua
