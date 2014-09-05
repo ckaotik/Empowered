@@ -24,8 +24,8 @@ ns.classSpells = {
 	DRUID = {
 		[  8921] = {function() return GetSpellBonusDamage(7) end, 1}, -- Moonfire
 		[ 93402] = {function() return GetSpellBonusDamage(4) end, 1}, -- Sunfire
-		[ 33745] = {function() return UnitAttackPower('player') end, 3}, --
-		[ 77758] = {function() return UnitAttackPower('player') end, 3}, --
+		[ 33745] = {function() return UnitAttackPower('player') end, 3}, -- Lacerate
+		[ 77758] = {function() return UnitAttackPower('player') end, 3}, -- Thrash
 	},
 	WARLOCK = {
 		[   172] = {function() return GetSpellBonusDamage(6) end, 1}, -- Corruption
@@ -84,25 +84,27 @@ ns.classModHandlers = {
 			local spellSchool = spellID == 8921 and 7 or 4 -- arcane or nature
 
 			local incarnation = GetSpellInfo(102560)
-			if UnitBuff('player', incarnation) then
+			local celestialAlignment = GetSpellInfo(112071)
+			local lunarEclipse = GetSpellInfo(48518)
+			local solarEclipse = GetSpellInfo(48517)
+
+			if UnitBuff('player', incarnation) and (UnitBuff('player', celestialAlignment)
+				or UnitBuff('player', lunarEclipse) or UnitBuff('player', solarEclipse)) then
 				-- balance incarnation provides +25% damage but only during eclipses
 				multiplier = 1.25
 			end
 
 			-- using buff-provided bonus values should even handle dream of cenarius
-			local celestialAlignment = GetSpellInfo(112071)
 			local bonus = select(15, UnitBuff('player', celestialAlignment))
 			if bonus then
 				return multiplier * (1 + bonus/100)
 			end
 
-			local lunarEclipse = GetSpellInfo(48518)
 			bonus = select(15, UnitBuff('player', lunarEclipse))
 			if bonus then
 				-- buffs arcane spells (spell school 7)
 				return multiplier * ((spellSchool == 7) and (1 + bonus/100) or 1)
 			end
-			local solarEclipse = GetSpellInfo(48517)
 			bonus = select(15, UnitBuff('player', solarEclipse))
 			if bonus then
 				-- buffs nature spells (spell school 4)
